@@ -1,0 +1,5 @@
+NGUYÊN NHÂN LÊN UNREAL MODE BỊ CRASH DO ;-; jmp 08h , khi jump 08h các thanh ghi segment cực kì không ổn định nên dễ dẫn tới crash
+NGUYÊN NHÂN BỊ CRASH TRONG GAME DO DIV MÀ QUÊN XOR DX, DX
+NGUYÊN NHÂN IN MÀ KHÔNG THẤY CHỮ TRONG GAME LÚC code game RPG , do quên set up màu :(
+REP MOVSB cực kì không ổn định , nên tự code tay hàm rep movsb
+
