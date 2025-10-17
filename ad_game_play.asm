@@ -13,6 +13,26 @@ ad_game_play:
 	mov word [index_emeny_offset_table], 0
 	mov word [index_table_emeny_char_in_map], 0
 
+	lea di, [emeny_offset_table]
+	mov cx, 10
+	call delete_word
+
+	lea di, [emeny_offset_table_info_monster]
+	mov cx, 10
+	call delete_word
+
+	lea di, [table_emeny_char_in_map]
+        mov cx, 10
+        call delete_byte
+
+	mov word [line], 0
+	mov word [cols], 0
+
+	lea di, [map_data]
+	mov cx, 80*25
+	mov al, 0x20          ; space character
+	rep stosb
+
 ; SAVE ADDR STRUCT INFO
 	mov si, emeny_offset_table_info_monster
 
@@ -60,6 +80,10 @@ ip:
 ip_next:
 	xor ah, ah
 	int 0x16
+; BACK TO MAIN
+        cmp al, 'q'
+        je back_to_main
+
 ; UP
         cmp ah, 48h
         je print_up
@@ -72,12 +96,10 @@ ip_next:
 ; RIGHT
         cmp ah, 4Dh
         je print_right
+
 ; PRINT INVENTORY
 	cmp al, 'i'
 	je inverntory
-; BACK TO MAIN
-	cmp al, 'q'
-	je back_to_main
 
 	jmp ip
 print_up:
@@ -1167,7 +1189,32 @@ back_to_map:
 	ret
 
 ;===========================================================
+delete_word:
+	xor ax, ax
+	mov [di], ax
+	add di, 2
+	dec cx
+	test cx, cx
+	jnz delete_word
+	ret
+
+;==========================================================
+delete_byte:
+        xor ax, ax
+        mov [di], al
+        inc di
+        dec cx
+        test cx, cx
+        jnz delete_byte
+	ret
+
+;===========================================================
 back_to_main:
+	call clear_src
+	mov word [line], 0
+	mov word [cols], 0
+	mov word [index_emeny_offset_table], 0
+	mov word [index_table_emeny_char_in_map], 0
 	ret
 
 
@@ -1209,6 +1256,7 @@ five					db "[5].",0
 six					db "[6].",0
 
 space					db 0x20,0x20,0x20,0x20,0x20,0x20,0
+
 
 
 
