@@ -65,15 +65,9 @@ read_special_loop:
 	int 0x10
 
 	jmp read_special_loop
-
-
-
-
 .maybe_enter:
 	test cx, cx
 	jz read_special_loop
-
-
 done_read_loop:
 ; CHECK ENTER REAL OR SPAM
 

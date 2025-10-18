@@ -712,6 +712,9 @@ mini_gift:
 	dec al
 	mov [cols_save], al
 
+        mov si, newline
+        call sys_write
+
 	mov si, msg_7
 	call sys_write
 
@@ -1096,8 +1099,8 @@ time_out_en:
 	xor ax, ax
 	int 0x16
 
-	hlt
-	cli
+	jmp back_to_menu
+
 
 
 
@@ -1177,9 +1180,13 @@ lose:
 	mov si, msg_lose
 	call sys_write
 
-	hlt
-	cli
+        mov si, msg_6
+        call sys_write
 
+        xor ah, ah
+        int 16h
+
+	jmp back_to_menu
 win:
 	mov si, newline
 	call sys_write
@@ -1187,11 +1194,12 @@ win:
 	mov si, msg_win
 	call sys_write
 
-	hlt
-	cli
 
+	mov si, msg_6
+	call sys_write
 
-
+	xor ah, ah
+	int 16h
 
 
 
@@ -1492,7 +1500,7 @@ msg_en_2	db "Mini Gift Event",13, 10
     		db "In the end, all I got was a nod. A polite compliment.",13, 10
     		db "Pathetic.",13,10 , 0
 
-msg_en_2_1	db " I give you 3500 point,you can add 3500 point to any cell you like in the table",0
+msg_en_2_1	db " I give you 3500 point,you can add 3500 point to any cell you like in the table",13,10,0
 ;---------------------------------------------------------------------------------------------------------------
 
 msg_en_3 	db "DIE OR LIVE Event",13, 10
@@ -1508,13 +1516,13 @@ msg_en_3 	db "DIE OR LIVE Event",13, 10
 
 msg_en_3_1	db "<<<<<<<<<<<<<<<<<<<<<<<<<<[ WAIT FOR DIE OR LIVE ]>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ",0
 
-msg_en_3_2	db "Congratulations You Live , Get Your Reward",10
-		db "I will give you a number from 1000 to 5000",10
+msg_en_3_2	db "Congratulations You Live , Get Your Reward",13,10
+		db "I will give you a number from 1000 to 5000",13,10
 		db "You get number : ",0
 
-msg_en_3_3	db "You Die... I Will Delete Your Biggest Number",10,0
-msg_1_3           db "Please choose line : ", 0
-msg_2_3           db "Please choose cols : ", 0
+msg_en_3_3	db "You Die... I Will Delete Your Biggest Number",13,10,0
+msg_1_3         db "Please choose line : ", 0
+msg_2_3         db "Please choose cols : ", 0
 
 ;---------------------------------------------------------------------------------------------------------------
 

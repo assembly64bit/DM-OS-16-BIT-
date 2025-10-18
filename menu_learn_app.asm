@@ -70,7 +70,7 @@ page_back:
 input:
 	mov si, msg
 	call sys_write
-
+ip:
         xor ax, ax
         int 16h
 
@@ -83,7 +83,7 @@ input:
 	cmp al, 'q'
 	je back_to_menu
 
-        jmp input
+        jmp ip
 
 next_page:
         mov dx, 1               ; bit on
