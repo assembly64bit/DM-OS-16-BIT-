@@ -39,22 +39,27 @@ make run
 ```
 ---
 ## 🧠 F→S Method (Fundamental → System).
----
+
 DM_OS introduces a new structured learning model for Assembly — the F→S Method, short for Fundamental → System.
 It helps students progress from understanding basic CPU instructions to building real operating systems step-by-step.
+
 🩻 Stage 1 – Fundamental (Levels F--- → E+++)
 Learn registers, flags, and memory layout
 Practice with small programs: add, jump, loops
 Use debugger (GDB/QEMU) to observe register changes
+
 ⚙️ Stage 2 – Engineer (Levels D--- → B+++)
 Combine theory and hands-on coding
 Understand interrupts, stack, and segment registers
 Write simple drivers and memory managers
+
 🧩 Stage 3 – System (Levels A--- → S+++)
 Integrate everything into a full OS
 Build bootloader, kernel, syscall table, GUI
 Debug memory flow and handle hardware interrupts
+
 🧭 “Learn by building, not memorizing.”
 Each level ends with a tangible product — a working piece of the OS.
+
 ---
 
