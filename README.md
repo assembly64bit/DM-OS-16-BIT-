@@ -39,7 +39,7 @@ make run
 ```
 ---
 ## 🧠 F→S Method (Fundamental → System).
-
+---
 DM_OS introduces a new structured learning model for Assembly — the F→S Method, short for Fundamental → System.
 It helps students progress from understanding basic CPU instructions to building real operating systems step-by-step.
 🩻 Stage 1 – Fundamental (Levels F--- → E+++)
