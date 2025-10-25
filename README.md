@@ -1,4 +1,3 @@
-DM-OS-16-BIT
 # DM_OS – Educational 16-bit Operating System
 
 DM_OS is a **16-bit real-mode operating system** built entirely in Assembly, created as part of a research project at Trần Khai Nguyên High School.  
@@ -29,4 +28,13 @@ This project was created to:
 
 ---
 
+## 🚀 Build & Run
+
+### Prerequisites
+Install NASM and QEMU (Linux/WSL):
+```bash
+sudo apt install nasm make qemu-system-x86 -y
+sudo apt install make
+make run
+---
 
