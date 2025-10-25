@@ -1,6 +1,6 @@
 # DM_OS – Educational 16-bit Operating System
 
-DM_OS is a **16-bit real-mode operating system** built entirely in Assembly, created as part of a research project at Trần Khai Nguyên High School.  
+DM_OS is a **16-bit real-mode operating system** built entirely in Assembly, created as part of a research project . 
 The project’s goal is to make Assembly and OS development more accessible to Vietnamese students through a clear codebase and a practical learning method called **F→S (Fundamental → System)**.
 
 ---
